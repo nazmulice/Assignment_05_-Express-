@@ -45,7 +45,9 @@ app.delete("/books/:id", (req, res) => {
     res.status(404).json({ message: "Book not found." });
   }
 });
-
+app.use((req, res) => {
+  res.sendFile(__dirname + "./public/error.html");
+});
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
